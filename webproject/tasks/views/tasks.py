@@ -12,6 +12,7 @@ def add_view(request):
         })
     task_data = {
         'description': request.POST.get('description'),
+        'detail_description': request.POST.get('detail_description'),
         'status': request.POST.get('status'),
         'date_deadline': request.POST.get('date_deadline')
     }
@@ -30,6 +31,7 @@ def edit_view(request, pk):
         return render(request, 'task_edit.html', context=context)
     task = Task.objects.get(pk=pk)
     task.description = request.POST.get('description')
+    task.detail_description = request.POST.get('detail_description')
     task.status = request.POST.get('status')
     task.date_deadline = request.POST.get('date_deadline')
     task.save()

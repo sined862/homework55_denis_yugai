@@ -16,6 +16,10 @@
                 <span class="input-group-text" id="inputGroup-sizing-default">Описание: </span>
                 <input required value=" {{ task.description }}" name="description" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
             </div>
+            <div class="form-floating mb-4">
+                <textarea class="form-control" id="floatingTextarea" name="detail_description">{{task.detail_description}}</textarea>
+                <label for="floatingTextarea">Подробное описание:</label>
+            </div>
             <div class="input-group mb-4">
                 <span class="input-group-text" id="inputGroup-sizing-default">Дата выполнения: </span>
                 <input value="{{ task.date_deadline }}" name="date_deadline" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
