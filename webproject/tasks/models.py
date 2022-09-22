@@ -3,7 +3,9 @@ from django.db import models
 class Task(models.Model):
     description = models.CharField(verbose_name='Описание', max_length=300, null=False, blank=False)
     status = models.CharField(verbose_name='Статус', max_length=15, null=False, blank=False, default='new')
+    detail_description = models.TextField(verbose_name='Детальное описание', max_length=600, null=False, blank=False, default='')
     date_deadline = models.CharField(verbose_name='Дата выполнения', max_length=10, null=False, blank=False, default='')
+
 
     CHOICES = [('new', 'Новая'), ('process', 'В процессе'), ('done', 'Сделано')]
 
