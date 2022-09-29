@@ -15,7 +15,7 @@
 {% for task in tasks %}
 <div class="col-md-12 col-xl-4">
   <div class="card p-3 m-2">
-    <div class="card-header">
+    <div class="card-header p-0 bg-white">
       <p><a class="text-dark" style="text-decoration: none;" href="{% url 'task_detail' task.pk %}"><h5 class="card-title">{{task.description}}</h5></a></p>
     </div> 
     <p class="card-text text-secondary">Дата выполнения: <strong>{{task.date_deadline}}</strong></p>

@@ -1,4 +1,3 @@
-from django.urls import reverse
 from django.shortcuts import render
 from tasks.models import Task
 from django.shortcuts import redirect , get_object_or_404
@@ -22,7 +21,7 @@ def add_view(request):
 
 def edit_view(request, pk):
     if request.method == 'GET':
-        task = Task.objects.get(pk=pk)
+        task = get_object_or_404(Task, pk=pk)
         choices = Task.CHOICES
         context = {
             "task": task,
@@ -43,7 +42,13 @@ def detail_view(request, pk):
     return render(request, 'task.html', context={'task': task, 'choices': choices})
 
 def del_view(request, pk):
-    task = Task.objects.get(pk=pk)
+    task = get_object_or_404(Task, pk=pk)
+    # task.delete()
+    # return redirect('index')
+    return render(request, 'task_confirm_delete.html', context = {'task': task})
+
+def del_confirm_view(request, pk):
+    task = get_object_or_404(Task, pk=pk)
     task.delete()
     return redirect('index')
 
