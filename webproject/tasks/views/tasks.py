@@ -39,7 +39,8 @@ def edit_view(request, pk):
 
 def detail_view(request, pk):
     task = get_object_or_404(Task, pk=pk)
-    return render(request, 'task.html', context={'task': task})
+    choices = Task.CHOICES
+    return render(request, 'task.html', context={'task': task, 'choices': choices})
 
 def del_view(request, pk):
     task = Task.objects.get(pk=pk)

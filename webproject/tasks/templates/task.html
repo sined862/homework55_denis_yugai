@@ -1,22 +1,26 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block title %}
     Task detail
 {% endblock %}
-
 {% block menu %}
 <li class="nav-item">
-    <a class="nav-link active text-light" aria-current="page" href="{% url 'task_add' %}">+ добавить задачу</a>
+    <a class="nav-link" href="{% url 'task_add' %}">+добавить задачу</a>
 </li>
 {% endblock %}
 
 {% block content %}
-<div class="card mb-3">
+<div class="card mb-3 mt-4">
     <div class="card-body">
-      <h5 class="card-title">{{ task.description }}</h5>
-      <p class="card-text">Дата выполнения: {{task.date_deadline}}</p>
-      <p class="card-text"><small class="text-muted">Статус: <strong>{{task.status}}</strong></small></p>
+      <h4 class="card-title">{{ task.description }}</h4>
+      <p class="card-text">Дата выполнения: <strong>{{task.date_deadline}}</strong></p>
+        {% for choice in choices %}
+        {% if task.status == choice.0 %}
+        <p class="card-text"><small class="text-muted">Статус: <strong class="{{ choice.2 }}">{{choice.1}}</strong></small></p>
+        {% endif %}
+        {% endfor %}
       <p class="card-text">{{ task.detail_description | linebreaks }}</p>
+      <p style="text-align: right;"><small><a  class="link-success" href="{% url 'task_edit' task.pk %}">редактировать</a> | <a class="link-danger" href="{% url 'task_del' task.pk %}">удалить</a></small></p>
     </div>
 </div>
 <p class="mt-4 ms-2"><a href="../">вернуться на главную</a></p>

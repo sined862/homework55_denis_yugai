@@ -1,26 +1,39 @@
 {% extends 'base.html' %}
 
 {% block menu %}
-  <li class="nav-item">
-    <a class="nav-link active text-light" aria-current="page" href="{% url 'task_add' %}">+ добавить задачу</a>
-  </li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'task_add' %}">+добавить задачу</a>
+</li>
 {% endblock %}
 
 {% block content %}
+<div style="text-align: center;" class="title mt-3 mb-3">
+  <h2>Список задач:</h2>
+</div>
+<div class="row">
 {% if tasks %}
 {% for task in tasks %}
-<div class="card mb-3">
-    <div class="card-body">
-      <a href="{% url 'task_detail' task.pk %}"><h5 class="card-title">{{task.description}}</h5></a>
-      <p class="card-text">Дата выполнения: {{task.date_deadline}}</p>
-      <p class="card-text"><small class="text-muted">Статус: <strong>{{task.status}}</strong></small></p>
-      <p><a href="/task/{{task.id}}">подробнее</a> | <a href="{% url 'task_edit' task.pk %}">редактировать</a> | <a href="{% url 'task_del' task.pk %}">удалить</a></p>
-    </div>
+<div class="col-md-12 col-xl-4">
+  <div class="card p-3 m-2">
+    <div class="card-header">
+      <p><a class="text-dark" style="text-decoration: none;" href="{% url 'task_detail' task.pk %}"><h5 class="card-title">{{task.description}}</h5></a></p>
+    </div> 
+    <p class="card-text text-secondary">Дата выполнения: <strong>{{task.date_deadline}}</strong></p>
+    {% for choice in choices %}
+    {% if task.status == choice.0 %}
+    <p class="card-text"><small class="text-muted">Статус: <strong class="{{ choice.2 }}">{{choice.1}}</strong></small></p>
+    {% endif %}
+    {% endfor %}
+    <p><strong><a href="{% url 'task_detail' task.pk %}" class="btn btn-primary ps-5 pe-5">Подробнее</a></strong></p>
+    <p style="text-align: right;"><small><a  class="link-success" href="{% url 'task_edit' task.pk %}">редактировать</a> | <a class="link-danger" href="{% url 'task_del' task.pk %}">удалить</a></small></p>
   </div>
+</div>
 {% endfor %}
 
 {% else %}
 <h1>Вы не создали еще ни одной задачи!</h1>
 <p><a href="add/">Добавить новую задачу</a></p>
 {% endif %}
+
+</div>
 {% endblock %}
