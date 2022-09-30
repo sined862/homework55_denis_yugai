@@ -1,16 +1,6 @@
 [
 {
   "model": "tasks.task",
-  "pk": 10,
-  "fields": {
-    "description": "    Task write app to do list!",
-    "status": "new",
-    "detail_description": "Lorem \r\nIpsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    "date_deadline": "2022-09-20"
-  }
-},
-{
-  "model": "tasks.task",
   "pk": 11,
   "fields": {
     "description": " Task calculator",
@@ -31,12 +21,42 @@
 },
 {
   "model": "tasks.task",
-  "pk": 13,
+  "pk": 16,
   "fields": {
-    "description": "  Новая задача",
+    "description": " Лабораторная работа №55",
+    "status": "done",
+    "detail_description": "-сделать в срок\r\n-применять коммиты\r\n-не делать ошибок",
+    "date_deadline": "2022-10-01"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 17,
+  "fields": {
+    "description": "     Task write app to do list",
     "status": "new",
-    "detail_description": "Lorem\r\nIpsum is simply\r\n dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    "date_deadline": "2022-09-25"
+    "detail_description": "-повторить все темы\r\n-сделать лабу",
+    "date_deadline": "2022-10-01"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 28,
+  "fields": {
+    "description": "Сделать уборку",
+    "status": "process",
+    "detail_description": "Сделать уборку Сделать уборку\r\nСделать уборку\r\nСделать уборку\r\nСделать уборку",
+    "date_deadline": "2022-10-01"
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 29,
+  "fields": {
+    "description": "Новая задача",
+    "status": "done",
+    "detail_description": "-1\r\n-2\r\n-3\r\n-4",
+    "date_deadline": "2022-09-23"
   }
 },
 {
@@ -296,7 +316,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$390000$8XaERwjjp5B9NW62EVUh7F$KtWZrNL3eK2OlnmMyX7wdqNX6IMtamZjNoUa80A1CNQ=",
-    "last_login": "2022-09-20T09:39:11.415Z",
+    "last_login": "2022-09-30T09:28:36.820Z",
     "is_superuser": true,
     "username": "root",
     "first_name": "",
