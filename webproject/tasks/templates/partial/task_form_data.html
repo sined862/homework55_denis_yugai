@@ -1,0 +1,32 @@
+﻿{% csrf_token %}
+
+<div class="input-group mt-4 mb-4">
+    <span class="input-group-text" id="inputGroup-sizing-default">{{ form.description.label }}: </span>
+    {{ form.description }}
+
+</div>
+{% for error in form.description.errors %}
+<div><p class="text-danger">{{ error }}</p></div>
+{% endfor %}
+<div class="form-floating mb-4">
+    {{form.detail_description}}
+    <label for="floatingTextarea">{{ form.description.label }}:</label>
+</div>
+{% for error in form.detail_description.errors %}
+<div><p class="text-danger">{{ error }}</p></div>
+{% endfor %}
+<div class="input-group mb-4">
+    <span class="input-group-text" id="inputGroup-sizing-default">{{ form.date_deadline.label }}: </span>
+    {{ form.date_deadline}}
+</div>
+{% for error in form.date_deadline.errors %}
+<div><p class="text-danger">{{ error }}</p></div>
+{% endfor %}
+<div class="ms-3">
+    {{ form.status }}
+</div>
+{% for error in form.status.errors %}
+<div><p class="text-danger">{{ error }}</p></div>
+{% endfor %}
+
+<button type="submit" class="btn btn-primary ms-2 ps-3 pe-3 mt-4">{{ button_text }}</button>

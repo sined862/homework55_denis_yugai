@@ -7,7 +7,7 @@ class Task(models.Model):
     date_deadline = models.CharField(verbose_name='Дата выполнения', max_length=10, null=False, blank=False, default='')
 
 
-    CHOICES = [('new', 'Новая', 'text-danger'), ('process', 'В процессе', 'text-warning'), ('done', 'Сделано', 'text-success')]
+    CHOICES = [('new', 'Новая'), ('process', 'В процессе'), ('done', 'Сделано')]
 
 
     def __str__(self):

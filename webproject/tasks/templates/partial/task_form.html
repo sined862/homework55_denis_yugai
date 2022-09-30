@@ -1,6 +1,10 @@
-﻿<div class="input-group mt-4 mb-4">
+﻿{% csrf_token %}
+{% if errors.description %}
+<p class="text-danger">{{ errors.description }}</p>
+{%  endif %}
+<div class="input-group mt-4 mb-4">
     <span class="input-group-text" id="inputGroup-sizing-default">Описание: </span>
-    <input required value=" {{ task.description }}" name="description" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <input value=" {{ task.description }}" name="description" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
 <div class="form-floating mb-4">
     <textarea style="height:150px" class="form-control" id="floatingTextarea" name="detail_description">{{task.detail_description}}</textarea>

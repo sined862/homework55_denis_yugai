@@ -13,8 +13,7 @@
 {% block content %}
 <h1 class="m-3">Создание новой задачи: </h1>
 <form class="m-3" action="{% url 'task_add' %}" method="POST">
-    {% csrf_token %}
-    {% include 'partial/task_form.html' with button_text='Создать' %}
+    {% include 'partial/task_form_data.html' with button_text='Создать' %}
 </form>
 <p class="mt-4 ms-2"><a href="{% url 'index' %}">вернуться на главную</a></p>
 {% endblock %}

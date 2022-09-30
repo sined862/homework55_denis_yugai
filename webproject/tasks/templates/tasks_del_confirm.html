@@ -1,0 +1,16 @@
+﻿{% extends 'base.html' %}
+{% block title %}
+    Tasks delete
+{% endblock %}
+{% block menu %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'task_add' %}">+добавить задачу</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+{% for id in ids %}
+{{id}}
+{% endfor %}
+{% endblock %}
