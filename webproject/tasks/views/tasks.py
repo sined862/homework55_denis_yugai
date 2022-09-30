@@ -59,14 +59,21 @@ def del_confirm_view(request, pk):
     return redirect('index')
 
 def tasks_del_view(request):
-    if request.method == 'GET':
-        tasks = Task.objects.all()
-        return render(request, 'tasks_del.html', context={'tasks': tasks})
-    print(f'Посты - {request.POST}')
+    if request.method == 'POST':
+        tasks_del = request.POST.getlist('tasks')
+        return redirect('tasks_del_confirm')
+    tasks = Task.objects.all()
+    return render(request, 'tasks_del.html', context={'tasks': tasks})
+
+
 
 def tasks_del_confirm_view(request):
-    ids = request.POST
-    return render(request, 'tasks_del_confirm.html', context={'ids': ids})
+    print(request.POST)
+    if request.method == 'POST':
+        pks = request.POST.getlist('tasks')
+        tasks = Task.objects.filter(pk__in=pks)
+        Task.objects.filter(pk__in=pks).delete()
+        return redirect('index') 
 
+  
 
-    

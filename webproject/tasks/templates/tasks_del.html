@@ -1,4 +1,4 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% block title %}
     Tasks delete
 {% endblock %}
@@ -12,11 +12,11 @@
 <div class="card mb-3 mt-4">
     <div class="card-body">
       <h4 class="card-title">Выберете задачи, которые хотитие удалить:</h4>
-      <form action="{% url 'tasks_del_confirm' %}" method="post">
+      <form class="m-4" action="{% url 'tasks_del_confirm' %}" method="post">
         {% csrf_token %}
         {% for task in tasks %}
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="{{ task.pk }}" id="flexCheckDefault">
+            <input name="tasks" class="form-check-input" type="checkbox" value="{{ task.pk }}" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
               {{ task.description }}
             </label>
